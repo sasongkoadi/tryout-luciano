@@ -7,7 +7,8 @@ if (process.argv.length < 3) {
 var countwords
 var wordAndWord
 var objectWords
-var numbers
+var regex = /\d+/g;
+var numbers = 0
 var uniqeWords
 var uniqeWordsWithoutNumber
 
@@ -50,9 +51,10 @@ fs.readFile(filename, 'utf8', function(err, data) {
 
           uniqeWords = Object.keys(objectWords)
 
+          uniqeWordsWithoutNumber = words.match(regex)
 
-          console.log("Jumlah kata yang unik: "+uniqeWords.length);
 
+          console.log("Jumlah kata yang unik: "+ (uniqeWords.length + uniqeWordsWithoutNumber.length));
           console.log("Jumlah kata yang unik dan jumlahnya masing-masing:");
 
 
@@ -62,6 +64,14 @@ fs.readFile(filename, 'utf8', function(err, data) {
 
                 }
 
+                for (var i = 0; i < uniqeWordsWithoutNumber.length; i++) {
+
+                  numbers = numbers + uniqeWordsWithoutNumber[i]
+
+
+                }
+
+                console.log(numbers);
       }
 
       countWords(words)
