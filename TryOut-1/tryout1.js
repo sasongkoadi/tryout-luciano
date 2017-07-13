@@ -3,7 +3,7 @@ if (process.argv.length < 3) {
   console.log('Usage: node ' + process.argv[1] + ' FILENAME');
   process.exit(1);
 }
-// Read the file and print its contents.
+
 var countwords
 var wordAndWord
 var objectWords
